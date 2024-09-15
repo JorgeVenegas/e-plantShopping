@@ -282,8 +282,8 @@ function ProductList() {
                 <div className="product-grid">
                     {plantsArray.map((category, index) => (
                         <div key={index}>
+                            <h1 style={{textAlign: "center"}}>{category.category}</h1>
                             <div className="product-list">
-                            <h1>{category.category}</h1>
                                 {category.plants.map((plant, plantIndex) => (
                                     <div className="product-card" key={plantIndex}>
                                         <img className="product-image" src={plant.image} alt={plant.name} />
