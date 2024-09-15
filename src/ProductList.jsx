@@ -256,7 +256,6 @@ function ProductList() {
         setShowCart(false); // Hide the cart when navigating to About Us
     };
     const handleContinueShopping = (e) => {
-        e.preventDefault();
         setShowCart(false);
     };
     return (
@@ -283,15 +282,15 @@ function ProductList() {
                 <div className="product-grid">
                     {plantsArray.map((category, index) => (
                         <div key={index}>
-                            <h1><div>{category.category}</div></h1>
                             <div className="product-list">
+                            <h1>{category.category}</h1>
                                 {category.plants.map((plant, plantIndex) => (
                                     <div className="product-card" key={plantIndex}>
                                         <img className="product-image" src={plant.image} alt={plant.name} />
                                         <div className="product-title">{plant.name}</div>
                                         {/*Similarly like the above plant.name show other details like description and cost*/}
                                         {addedToCart[plant.name] ? (
-                                            <button className="product-button" disabled={true} style={{ backgroundColor: "#d6d6d6" }}>Added to Cart</button>
+                                            <button className="product-button" disabled={true} style={{ backgroundColor: "#d6d6d6", pointerEvents: "None" }}>Added to Cart</button>
                                         ) :
                                             <button className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
                                         }
